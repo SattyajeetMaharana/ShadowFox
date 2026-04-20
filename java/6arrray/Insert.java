@@ -1,0 +1,21 @@
+class Insert{
+public static void main(String args[]){
+int Arr[]=new int[10];
+Arr[0]=11;
+Arr[1]=22;
+Arr[2]=33;
+Arr[3]=44;
+Arr[4]=55;
+for(int x:Arr)
+System.out.print(x+"  ");
+
+int idx=2,key=30;
+for(int i=Arr.length-1; i>idx; i--){
+Arr[i]=Arr[i-1];
+}
+Arr[idx]=key;
+System.out.println("\nAfter insertion Array is:");
+for(int x:Arr)
+System.out.print(x+"  ");
+
+}}

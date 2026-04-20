@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sattyajeet Maharana | Web Developer</title>
+  <meta name="description" content="Portfolio of Sattyajeet Maharana - Web Developer & CSE Student at PMEC Berhampur" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">SM<span>.</span></a>
+  <button class="hamburger" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#resume">Résumé</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-dot"></div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <p class="hero-tag">Available · Brahmapur, India · 2026</p>
+        <h1 class="hero-title">
+          <span class="reveal-left">Sattyajeet</span>
+          <span class="text-stroke reveal-right">Maharana.</span>
+        </h1>
+        <p class="hero-desc">Web developer & CSE student passionate about crafting responsive, beautiful interfaces and building real-world projects.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">View Work ↗</a>
+          <a href="#contact" class="btn-outline">Let's Talk</a>
+        </div>
+        <div class="hero-scroll">Scroll to explore</div>
+      </div>
+      <div class="hero-counter">
+        <div class="hero-counter-label">Projects built</div>
+        <span class="hero-counter-num" id="counter">00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section-alt">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-num">01</span>
+      <h2>About</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="reveal">
+        <p class="about-headline">I build things at the <em>intersection</em> of design and code.</p>
+        <div class="about-text">
+          <p>Currently a B.Tech CSE student at Parala Maharaja Engineering College, Berhampur, and Class Representative for PMEC-CSE28. I'm passionate about front-end development and creating responsive, user-centered web experiences.</p>
+          <p>Working as a Web Development Intern at ShadowFox, building projects with HTML, CSS, JavaScript, and GitHub. Always exploring new technologies and looking for opportunities to grow.</p>
+        </div>
+        <div class="about-pills">
+          <span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">JavaScript</span>
+          <span class="pill">GitHub</span><span class="pill">React</span><span class="pill">Responsive Design</span>
+          <span class="pill">Tailwind CSS</span><span class="pill">Python</span>
+        </div>
+      </div>
+      <div class="about-meta reveal">
+        <div class="about-meta-row"><span class="about-meta-label">Based in</span><span class="about-meta-value">Brahmapur, Odisha, India</span></div>
+        <div class="about-meta-row"><span class="about-meta-label">Education</span><span class="about-meta-value">B.Tech CSE — PMEC</span></div>
+        <div class="about-meta-row"><span class="about-meta-label">Year</span><span class="about-meta-value">2024 — 2028</span></div>
+        <div class="about-meta-row"><span class="about-meta-label">Role</span><span class="about-meta-value">Class Representative</span></div>
+        <div class="about-meta-row"><span class="about-meta-label">Intern</span><span class="about-meta-value">ShadowFox (Web Dev)</span></div>
+        <div class="about-meta-row"><span class="about-meta-label">Status</span><span class="about-meta-value highlight">● Open to opportunities</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-num">02</span>
+      <h2>Skills</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <div class="skill-num">01</div>
+        <div class="skill-name">Frontend</div>
+        <div class="skill-tag">HTML5 / CSS3</div>
+        <div class="skill-tag">JavaScript</div>
+        <div class="skill-tag">React</div>
+        <div class="skill-tag">Tailwind CSS</div>
+        <div class="skill-tag">Responsive Design</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">02</div>
+        <div class="skill-name">Tools & Platforms</div>
+        <div class="skill-tag">GitHub</div>
+        <div class="skill-tag">VS Code</div>
+        <div class="skill-tag">Figma</div>
+        <div class="skill-tag">Netlify</div>
+        <div class="skill-tag">Vercel</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">03</div>
+        <div class="skill-name">Languages</div>
+        <div class="skill-tag">JavaScript</div>
+        <div class="skill-tag">Python</div>
+        <div class="skill-tag">C / C++</div>
+        <div class="skill-tag">Java (basics)</div>
+        <div class="skill-tag">SQL</div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-num">04</div>
+        <div class="skill-name">Soft Skills</div>
+        <div class="skill-tag">Team Leadership</div>
+        <div class="skill-tag">Communication</div>
+        <div class="skill-tag">Problem Solving</div>
+        <div class="skill-tag">Time Management</div>
+        <div class="skill-tag">Adaptability</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section-alt">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-num">03</span>
+      <h2>Selected Work</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="reveal">
+      <div class="project-row">
+        <div class="project-num">01</div>
+        <div>
+          <div class="project-title">Portfolio Website</div>
+          <p class="project-desc">A modern, responsive personal portfolio built with HTML, CSS, and JavaScript featuring smooth scroll animations and a dark theme.</p>
+          <div class="project-techs"><span class="project-tech">HTML</span><span class="project-tech">CSS</span><span class="project-tech">JavaScript</span></div>
+        </div>
+        <div class="project-meta">
+          <span class="project-year">2026</span>
+          <span class="project-badge accent">Featured</span>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="project-num">02</div>
+        <div>
+          <div class="project-title">ShadowFox Web Tasks</div>
+          <p class="project-desc">Web development projects completed during the ShadowFox internship, focusing on responsive layouts and interactive UI components.</p>
+          <div class="project-techs"><span class="project-tech">HTML</span><span class="project-tech">CSS</span><span class="project-tech">JavaScript</span><span class="project-tech">GitHub</span></div>
+        </div>
+        <div class="project-meta">
+          <span class="project-year">2026</span>
+          <span class="project-badge">Internship</span>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+      <div class="project-row">
+        <div class="project-num">03</div>
+        <div>
+          <div class="project-title">Responsive Landing Page</div>
+          <p class="project-desc">A fully responsive landing page with mobile-first approach, CSS animations, and clean semantic markup.</p>
+          <div class="project-techs"><span class="project-tech">HTML5</span><span class="project-tech">CSS3</span><span class="project-tech">Flexbox</span><span class="project-tech">Grid</span></div>
+        </div>
+        <div class="project-meta">
+          <span class="project-year">2025</span>
+          <span class="project-badge">Practice</span>
+          <span class="project-arrow">↗</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-num">04</span>
+      <h2>Résumé</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="resume-grid">
+      <div class="reveal">
+        <div class="resume-label">Experience & Education</div>
+        <div class="timeline-item">
+          <div class="timeline-date">April 2026 — Present</div>
+          <div class="timeline-title">Web Development Intern</div>
+          <div class="timeline-org">ShadowFox · Brahmapur</div>
+          <div class="timeline-text">Working on web development tasks using HTML, CSS, JavaScript and GitHub as part of the ShadowFox Internship Program.</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2024 — 2028</div>
+          <div class="timeline-title">B.Tech Computer Science & Engineering</div>
+          <div class="timeline-org">Parala Maharaja Engineering College, Berhampur</div>
+          <div class="timeline-text">Class Representative. Focused on web technologies, programming fundamentals, and software development.</div>
+        </div>
+        <a href="#" class="btn-outline" style="margin-top:1rem;">Download CV ↓</a>
+      </div>
+      <div class="reveal" id="proficiency-section">
+        <div class="resume-label">Proficiency</div>
+        <div class="bar-wrap"><div class="bar-label"><span>HTML / CSS</span><span>90%</span></div><div class="bar-track"><div class="bar-fill" style="--pct:90%"></div></div></div>
+        <div class="bar-wrap"><div class="bar-label"><span>JavaScript</span><span>75%</span></div><div class="bar-track"><div class="bar-fill" style="--pct:75%"></div></div></div>
+        <div class="bar-wrap"><div class="bar-label"><span>React</span><span>65%</span></div><div class="bar-track"><div class="bar-fill" style="--pct:65%"></div></div></div>
+        <div class="bar-wrap"><div class="bar-label"><span>GitHub / Git</span><span>80%</span></div><div class="bar-track"><div class="bar-fill" style="--pct:80%"></div></div></div>
+        <div class="bar-wrap"><div class="bar-label"><span>Responsive Design</span><span>85%</span></div><div class="bar-track"><div class="bar-fill" style="--pct:85%"></div></div></div>
+        <div class="bar-wrap"><div class="bar-label"><span>Python</span><span>60%</span></div><div class="bar-track"><div class="bar-fill" style="--pct:60%"></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section-alt">
+  <div class="container">
+    <div class="section-heading reveal">
+      <span class="section-num">05</span>
+      <h2>Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="reveal">
+        <h3 class="contact-title">Let's build<br><span class="accent">something</span><br><span class="stroke">great.</span></h3>
+        <p class="contact-subtitle">Open to internships, freelance projects, and collaboration opportunities. I'd love to hear from you!</p>
+        <a href="mailto:sattyajeetmaharana@gmail.com" class="contact-link">
+          <div><div class="contact-link-label">Email</div><div class="contact-link-value">sattyajeetmaharana@gmail.com</div></div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://www.linkedin.com/in/sattyajeet-maharana-974bb9328" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <div><div class="contact-link-label">LinkedIn</div><div class="contact-link-value">Sattyajeet Maharana</div></div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+        <a href="https://www.instagram.com/sattyajeet_maharana" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <div><div class="contact-link-label">Instagram</div><div class="contact-link-value">My Professional Connect</div></div>
+          <span class="contact-link-arrow">↗</span>
+        </a>
+      </div>
+      <div class="reveal">
+        <div class="form-row">
+          <div class="form-group"><label>First name</label><input placeholder="Sattyajeet" /></div>
+          <div class="form-group"><label>Last name</label><input placeholder="Maharana" /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="you@company.com" /></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Tell me about your project..."></textarea></div>
+        <button class="btn-primary" onclick="this.outerHTML='<div style=\'background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);color:#4ade80;padding:0.75rem;border-radius:4px;font-size:0.78rem;letter-spacing:0.05em;text-align:center\'>✓ Sent! I\'ll reply within 24 hours.</div>'">Send Message ↗</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Sattyajeet Maharana</span>
+  <div class="footer-links">
+    <a href="https://github.com/sattyajeetmaharana" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/sattyajeet-maharana-974bb9328" target="_blank">LinkedIn</a>
+    <a href="https://www.instagram.com/sattyajeet_maharana" target="_blank">Instagram</a>
+  </div>
+  <span>Built with ♥</span>
+</footer>
+
+<script>
+// Counter animation
+(function(){
+  const el=document.getElementById('counter');
+  let start=Date.now(),target=5,dur=2000;
+  let t=setInterval(()=>{
+    let p=Math.min((Date.now()-start)/dur,1);
+    let e=1-Math.pow(1-p,3);
+    el.textContent=String(Math.round(e*target)).padStart(2,'0');
+    if(p>=1)clearInterval(t);
+  },30);
+})();
+
+// Scroll reveal
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.15});
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el=>obs.observe(el));
+
+// Bar animation
+const barObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.bar-fill').forEach((b,i)=>{
+        setTimeout(()=>b.classList.add('visible'),i*100);
+      });
+      barObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+const ps=document.getElementById('proficiency-section');
+if(ps)barObs.observe(ps);
+</script>
+
+</body>
+</html>

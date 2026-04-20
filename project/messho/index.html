@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meesho — India's Favourite Online Shopping App</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Bebas+Neue&family=Nunito:wght@400;600;700&family=Raleway:wght@400;500;600&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- DARK MODE TOGGLE -->
+<button class="dark-toggle" id="darkToggle" title="Toggle Dark Mode">
+  <i class="fas fa-moon" id="darkIcon"></i>
+</button>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" title="Back to Top">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- FLOATING CART -->
+<button class="floating-cart" id="floatingCart">
+  <i class="fas fa-shopping-bag"></i>
+  <span class="cart-count" id="cartCount">0</span>
+</button>
+
+<!-- OFFER TICKER -->
+<div class="offer-ticker">
+  <div class="ticker-inner">
+    <span>🎉 Free Delivery on orders above ₹199</span>
+    <span>🔥 Up to 80% OFF on Women's Fashion</span>
+    <span>⚡ Flash Sale: Extra 10% on all Kurtis</span>
+    <span>💎 New Arrivals: Festive Collection 2026</span>
+    <span>🎁 Refer & Earn: Get ₹150 cashback</span>
+    <span>🚀 Express Delivery available in 200+ cities</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header class="header" id="mainHeader">
+  <div class="header-top">
+    <div class="logo">
+      <span class="logo-m">m</span><span class="logo-text">eesho</span>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search for products, brands and more..." />
+        <div class="search-actions">
+          <button class="search-btn voice-btn" id="voiceBtn" title="Voice Search">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <button class="search-btn image-btn" id="imageBtn" title="Image Search">
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+      </div>
+      <!-- Search Suggestions Dropdown -->
+      <div class="search-suggestions" id="searchSuggestions">
+        <div class="suggestion-section">
+          <p class="suggestion-label">Popular Searches</p>
+          <div class="tag-cloud">
+            <span class="tag-chip" onclick="setSearch('Saree')">Saree</span>
+            <span class="tag-chip" onclick="setSearch('Kurti')">Kurti</span>
+            <span class="tag-chip" onclick="setSearch('Tops')">Tops</span>
+            <span class="tag-chip" onclick="setSearch('Lehenga')">Lehenga</span>
+            <span class="tag-chip" onclick="setSearch('T-shirt')">T-shirt</span>
+            <span class="tag-chip" onclick="setSearch('Jeans')">Jeans</span>
+            <span class="tag-chip" onclick="setSearch('Dress')">Dress</span>
+            <span class="tag-chip" onclick="setSearch('Ethnic Wear')">Ethnic Wear</span>
+          </div>
+        </div>
+        <div class="suggestion-section">
+          <p class="suggestion-label">Trending Now 🔥</p>
+          <div class="suggestion-items" id="suggestionItems"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER ACTIONS -->
+    <div class="header-actions">
+      <button class="header-btn" title="Become a Supplier">
+        <i class="fas fa-store"></i>
+        <span>Become a Supplier</span>
+      </button>
+      <button class="header-btn" title="Investor Relations">
+        <i class="fas fa-chart-line"></i>
+        <span>Investor Relations</span>
+      </button>
+      <button class="header-btn" id="notifBtn" title="Notifications">
+        <i class="fas fa-bell"></i>
+        <span class="notif-dot"></span>
+      </button>
+      <button class="header-btn" title="Profile">
+        <i class="fas fa-user-circle"></i>
+        <span>Profile</span>
+      </button>
+      <button class="header-btn cart-btn" id="cartBtn" title="Cart">
+        <i class="fas fa-shopping-bag"></i>
+        <span>Cart</span>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION DROPDOWN -->
+  <div class="notif-dropdown" id="notifDropdown">
+    <p class="notif-title">Notifications</p>
+    <div class="notif-item"><i class="fas fa-tag"></i> Flash sale starts in 2 hours! Extra 20% off</div>
+    <div class="notif-item"><i class="fas fa-truck"></i> Your order #MH2891 is out for delivery</div>
+    <div class="notif-item"><i class="fas fa-gift"></i> You have ₹150 cashback waiting to be used</div>
+    <div class="notif-item"><i class="fas fa-star"></i> Rate your recent purchase and earn coins</div>
+  </div>
+
+  <!-- CATEGORY NAV -->
+  <nav class="category-nav">
+    <div class="nav-categories" id="navCategories">
+      <div class="nav-item active" data-cat="popular">
+        <div class="nav-icon"><i class="fas fa-fire"></i></div>
+        <span>Popular</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Trending Sarees</a><a href="#">Best Sellers</a>
+            <a href="#">New Arrivals</a><a href="#">Flash Deals</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="kurti">
+        <div class="nav-icon"><i class="fas fa-tshirt"></i></div>
+        <span>Kurti, Saree & Lehenga</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Kurtis</a><a href="#">Sarees</a>
+            <a href="#">Lehengas</a><a href="#">Salwar Suits</a>
+            <a href="#">Dupatta</a><a href="#">Ethnic Sets</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="western">
+        <div class="nav-icon"><i class="fas fa-vest"></i></div>
+        <span>Women Western</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Tops</a><a href="#">Dresses</a>
+            <a href="#">Jeans</a><a href="#">Co-ords</a>
+            <a href="#">Jumpsuits</a><a href="#">Skirts</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="lingerie">
+        <div class="nav-icon"><i class="fas fa-heart"></i></div>
+        <span>Lingerie</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Bras</a><a href="#">Panties</a>
+            <a href="#">Shapewear</a><a href="#">Nightwear</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="men">
+        <div class="nav-icon"><i class="fas fa-male"></i></div>
+        <span>Men</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">T-Shirts</a><a href="#">Shirts</a>
+            <a href="#">Jeans</a><a href="#">Kurtas</a>
+            <a href="#">Trousers</a><a href="#">Shorts</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="kids">
+        <div class="nav-icon"><i class="fas fa-child"></i></div>
+        <span>Kids & Toys</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Boys Clothing</a><a href="#">Girls Clothing</a>
+            <a href="#">Toys</a><a href="#">School Bags</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="home">
+        <div class="nav-icon"><i class="fas fa-home"></i></div>
+        <span>Home & Kitchen</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Bedsheets</a><a href="#">Curtains</a>
+            <a href="#">Cookware</a><a href="#">Storage</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="beauty">
+        <div class="nav-icon"><i class="fas fa-spa"></i></div>
+        <span>Beauty & Health</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Skincare</a><a href="#">Haircare</a>
+            <a href="#">Makeup</a><a href="#">Wellness</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="jewellery">
+        <div class="nav-icon"><i class="fas fa-gem"></i></div>
+        <span>Jewellery & Accessories</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Earrings</a><a href="#">Necklaces</a>
+            <a href="#">Bangles</a><a href="#">Rings</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="bags">
+        <div class="nav-icon"><i class="fas fa-shopping-bag"></i></div>
+        <span>Bags & Footwear</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Handbags</a><a href="#">Heels</a>
+            <a href="#">Flats</a><a href="#">Backpacks</a>
+          </div>
+        </div>
+      </div>
+      <div class="nav-item" data-cat="electronics">
+        <div class="nav-icon"><i class="fas fa-mobile-alt"></i></div>
+        <span>Electronics</span>
+        <div class="nav-popup">
+          <div class="popup-grid">
+            <a href="#">Earphones</a><a href="#">Chargers</a>
+            <a href="#">Smart Watches</a><a href="#">Power Banks</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ACTIVE FILTER CHIPS -->
+<div class="filter-chips-bar" id="filterChipsBar" style="display:none;">
+  <span class="chips-label">Active Filters:</span>
+  <div id="activeChips"></div>
+  <button class="clear-all-btn" onclick="clearAllFilters()">Clear All</button>
+</div>
+
+<!-- HERO BANNER -->
+<section class="hero-banner">
+  <div class="banner-slider" id="bannerSlider">
+    <div class="banner-slide active" style="background: linear-gradient(135deg, #f5a3c7 0%, #d63384 50%, #9b1d6a 100%);">
+      <div class="banner-content">
+        <p class="banner-tag">New Collection</p>
+        <h1 class="banner-title">Festive Season<br/>Sale is LIVE</h1>
+        <p class="banner-sub">Up to 80% off on Ethnic Wear</p>
+        <button class="banner-cta">Shop Now <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="banner-img-wrap">
+        <img src="https://images.unsplash.com/photo-1583391733981-8498408ee4b2?w=400&h=500&fit=crop" alt="Festive Sale"/>
+      </div>
+    </div>
+    <div class="banner-slide" style="background: linear-gradient(135deg, #a8d8ea 0%, #3a86ff 50%, #1d3557 100%);">
+      <div class="banner-content">
+        <p class="banner-tag">Men's Edition</p>
+        <h1 class="banner-title">Casual & Formal<br/>Styles Await</h1>
+        <p class="banner-sub">Starting at just ₹199</p>
+        <button class="banner-cta">Explore <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="banner-img-wrap">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Men Fashion"/>
+      </div>
+    </div>
+    <div class="banner-slide" style="background: linear-gradient(135deg, #ffd166 0%, #ef8c2c 50%, #c0392b 100%);">
+      <div class="banner-content">
+        <p class="banner-tag">Home Decor</p>
+        <h1 class="banner-title">Transform Your<br/>Living Space</h1>
+        <p class="banner-sub">Bedsheets, curtains & more</p>
+        <button class="banner-cta">Discover <i class="fas fa-arrow-right"></i></button>
+      </div>
+      <div class="banner-img-wrap">
+        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=500&fit=crop" alt="Home Decor"/>
+      </div>
+    </div>
+  </div>
+  <div class="banner-dots" id="bannerDots">
+    <span class="dot active" onclick="goToSlide(0)"></span>
+    <span class="dot" onclick="goToSlide(1)"></span>
+    <span class="dot" onclick="goToSlide(2)"></span>
+  </div>
+  <button class="banner-arrow prev" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+  <button class="banner-arrow next" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+</section>
+
+<!-- POPULAR SEARCH TAGS -->
+<section class="tags-section">
+  <div class="tags-container">
+    <span class="section-label-tags">🔍 Trending Searches:</span>
+    <div class="tags-scroll">
+      <span class="tag-pill">Printed Saree</span>
+      <span class="tag-pill">Anarkali Kurti</span>
+      <span class="tag-pill">Floral Dress</span>
+      <span class="tag-pill">Men Polo T-shirt</span>
+      <span class="tag-pill">Kids Party Wear</span>
+      <span class="tag-pill">Gold Earrings</span>
+      <span class="tag-pill">Crossbody Bag</span>
+      <span class="tag-pill">Running Shoes</span>
+      <span class="tag-pill">Cotton Bedsheet</span>
+      <span class="tag-pill">Lipstick</span>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT: SIDEBAR + PRODUCTS -->
+<main class="main-content">
+
+  <!-- SIDEBAR FILTERS -->
+  <aside class="sidebar" id="sidebar">
+    <h2 class="sidebar-title">Filters</h2>
+
+    <!-- PRICE RANGE SLIDER -->
+    <div class="filter-section">
+      <div class="filter-header" onclick="toggleFilter('price')">
+        <span class="filter-title">Price</span>
+        <i class="fas fa-chevron-up" id="price-icon"></i>
+      </div>
+      <div class="filter-body" id="price-body">
+        <div class="price-slider-wrap">
+          <div class="price-display">
+            <span>₹<span id="minVal">100</span></span>
+            <span>₹<span id="maxVal">10000</span>+</span>
+          </div>
+          <div class="range-slider">
+            <div class="range-track" id="rangeTrack"></div>
+            <input type="range" id="minRange" min="100" max="10000" value="100" step="50"/>
+            <input type="range" id="maxRange" min="100" max="10000" value="10000" step="50"/>
+          </div>
+          <div class="price-presets">
+            <button class="preset-btn" onclick="setPrice(100,499)">Under ₹499</button>
+            <button class="preset-btn" onclick="setPrice(500,999)">₹500-999</button>
+            <button class="preset-btn" onclick="setPrice(1000,2000)">₹1k-2k</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLOR FILTER -->
+    <div class="filter-section">
+      <div class="filter-header" onclick="toggleFilter('color')">
+        <span class="filter-title">Color</span>
+        <i class="fas fa-chevron-up" id="color-icon"></i>
+      </div>
+      <div class="filter-body" id="color-body">
+        <div class="color-list" id="colorList">
+          <label class="color-option"><input type="checkbox" value="Black" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#1a1a1a;border:1px solid #ddd;"></span><span class="color-name">Black</span><span class="color-count">(42041)</span></label>
+          <label class="color-option"><input type="checkbox" value="Blue" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#1877f2;"></span><span class="color-name">Blue</span><span class="color-count">(25789)</span></label>
+          <label class="color-option"><input type="checkbox" value="Pink" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#ff6eb4;"></span><span class="color-name">Pink</span><span class="color-count">(19362)</span></label>
+          <label class="color-option"><input type="checkbox" value="White" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#fff;border:1.5px solid #ccc;"></span><span class="color-name">White</span><span class="color-count">(19227)</span></label>
+          <label class="color-option"><input type="checkbox" value="Green" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#2d9e2d;"></span><span class="color-name">Green</span><span class="color-count">(17061)</span></label>
+          <label class="color-option"><input type="checkbox" value="Red" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#e42b2b;"></span><span class="color-name">Red</span><span class="color-count">(12884)</span></label>
+          <label class="color-option"><input type="checkbox" value="Navy Blue" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#001f5b;"></span><span class="color-name">Navy Blue</span><span class="color-count">(8711)</span></label>
+          <label class="color-option"><input type="checkbox" value="Yellow" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#ffd700;"></span><span class="color-name">Yellow</span><span class="color-count">(7230)</span></label>
+          <label class="color-option"><input type="checkbox" value="Orange" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#ff8c00;"></span><span class="color-name">Orange</span><span class="color-count">(6100)</span></label>
+          <label class="color-option"><input type="checkbox" value="Purple" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#8b00ff;"></span><span class="color-name">Purple</span><span class="color-count">(5480)</span></label>
+          <label class="color-option"><input type="checkbox" value="Maroon" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#800000;"></span><span class="color-name">Maroon</span><span class="color-count">(4950)</span></label>
+          <label class="color-option"><input type="checkbox" value="Grey" onchange="addColorFilter(this)"/><span class="color-dot" style="background:#888;"></span><span class="color-name">Grey</span><span class="color-count">(4200)</span></label>
+        </div>
+        <button class="show-more-btn">+ 44 more</button>
+      </div>
+    </div>
+
+    <!-- DISCOUNT RANGE -->
+    <div class="filter-section">
+      <div class="filter-header" onclick="toggleFilter('discount')">
+        <span class="filter-title">Discount Range</span>
+        <i class="fas fa-chevron-up" id="discount-icon"></i>
+      </div>
+      <div class="filter-body" id="discount-body">
+        <div class="discount-list">
+          <label class="discount-option"><input type="radio" name="discount" value="10"/> 10% and above</label>
+          <label class="discount-option"><input type="radio" name="discount" value="20"/> 20% and above</label>
+          <label class="discount-option"><input type="radio" name="discount" value="30"/> 30% and above</label>
+          <label class="discount-option"><input type="radio" name="discount" value="40"/> 40% and above</label>
+          <label class="discount-option"><input type="radio" name="discount" value="50"/> 50% and above</label>
+          <label class="discount-option"><input type="radio" name="discount" value="60"/> 60% and above</label>
+          <label class="discount-option"><input type="radio" name="discount" value="70"/> 70% and above</label>
+          <label class="discount-option"><input type="radio" name="discount" value="80"/> 80% and above</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- RATING FILTER -->
+    <div class="filter-section">
+      <div class="filter-header" onclick="toggleFilter('rating')">
+        <span class="filter-title">Customer Ratings</span>
+        <i class="fas fa-chevron-up" id="rating-icon"></i>
+      </div>
+      <div class="filter-body" id="rating-body">
+        <div class="rating-list">
+          <label class="rating-option"><input type="radio" name="rating" value="4"/> ⭐⭐⭐⭐ 4★ & above</label>
+          <label class="rating-option"><input type="radio" name="rating" value="3"/> ⭐⭐⭐ 3★ & above</label>
+          <label class="rating-option"><input type="radio" name="rating" value="2"/> ⭐⭐ 2★ & above</label>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- PRODUCT GRID -->
+  <section class="products-section">
+
+    <!-- COMPARE BAR -->
+    <div class="compare-bar" id="compareBar" style="display:none;">
+      <span>Comparing <strong id="compareCount">0</strong> items</span>
+      <button onclick="compareProducts()" class="compare-now-btn">Compare Now</button>
+      <button onclick="clearCompare()" class="compare-clear-btn">Clear</button>
+    </div>
+
+    <!-- RECENTLY VIEWED -->
+    <div class="recently-viewed" id="recentlyViewed" style="display:none;">
+      <h3 class="rv-title">Recently Viewed</h3>
+      <div class="rv-scroll" id="rvScroll"></div>
+    </div>
+
+    <div class="products-header">
+      <h2 class="products-title">Women's Fashion</h2>
+      <div class="sort-wrap">
+        <label>Sort by:</label>
+        <select class="sort-select">
+          <option>Relevance</option>
+          <option>Price: Low to High</option>
+          <option>Price: High to Low</option>
+          <option>Customer Rating</option>
+          <option>Newest First</option>
+          <option>Popularity</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- SKELETON LOADING -->
+    <div class="skeleton-grid" id="skeletonGrid">
+      <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-line shimmer"></div><div class="skeleton-line short shimmer"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-line shimmer"></div><div class="skeleton-line short shimmer"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-line shimmer"></div><div class="skeleton-line short shimmer"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-line shimmer"></div><div class="skeleton-line short shimmer"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-line shimmer"></div><div class="skeleton-line short shimmer"></div></div>
+      <div class="skeleton-card"><div class="skeleton-img shimmer"></div><div class="skeleton-line shimmer"></div><div class="skeleton-line short shimmer"></div></div>
+    </div>
+
+    <!-- PRODUCT GRID -->
+    <div class="product-grid" id="productGrid" style="display:none;">
+      <!-- Products injected by JS -->
+    </div>
+  </section>
+</main>
+
+<!-- QUICK VIEW MODAL -->
+<div class="quick-view-overlay" id="quickViewOverlay" onclick="closeQuickView()">
+  <div class="quick-view-modal" onclick="event.stopPropagation()">
+    <button class="qv-close" onclick="closeQuickView()"><i class="fas fa-times"></i></button>
+    <div class="qv-content" id="qvContent"></div>
+  </div>
+</div>
+
+<!-- CART MODAL -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()">
+  <div class="cart-drawer" onclick="event.stopPropagation()">
+    <div class="cart-header">
+      <h2 class="cart-title">My Cart</h2>
+      <button class="cart-close" onclick="closeCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="empty-cart">
+        <i class="fas fa-shopping-bag"></i>
+        <p>Your cart is empty</p>
+        <button onclick="closeCart()">Continue Shopping</button>
+      </div>
+    </div>
+    <!-- CART ADDONS -->
+    <div class="cart-addons" id="cartAddons">
+      <h3 class="addon-title">💡 Complete the Look</h3>
+      <div class="addon-scroll" id="addonScroll"></div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">Total: ₹<span id="cartTotal">0</span></div>
+      <button class="checkout-btn">Proceed to Checkout <i class="fas fa-arrow-right"></i></button>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARE MODAL -->
+<div class="compare-overlay" id="compareOverlay" onclick="closeCompare()">
+  <div class="compare-modal" onclick="event.stopPropagation()">
+    <button class="compare-close" onclick="closeCompare()"><i class="fas fa-times"></i></button>
+    <h2>Product Comparison</h2>
+    <div class="compare-table" id="compareTable"></div>
+  </div>
+</div>
+
+<!-- IMAGE SEARCH MODAL -->
+<div class="img-search-overlay" id="imgSearchOverlay" onclick="closeImageSearch()">
+  <div class="img-search-modal" onclick="event.stopPropagation()">
+    <button class="img-search-close" onclick="closeImageSearch()"><i class="fas fa-times"></i></button>
+    <h2>Search by Image</h2>
+    <div class="img-upload-area" id="imgUploadArea">
+      <i class="fas fa-camera"></i>
+      <p>Drag & drop an image here</p>
+      <p>or</p>
+      <button onclick="document.getElementById('imgFileInput').click()">Choose Image</button>
+      <input type="file" id="imgFileInput" accept="image/*" style="display:none;" onchange="handleImageUpload(event)"/>
+    </div>
+  </div>
+</div>
+
+<!-- VOICE SEARCH MODAL -->
+<div class="voice-overlay" id="voiceOverlay" onclick="closeVoice()">
+  <div class="voice-modal" onclick="event.stopPropagation()">
+    <button class="voice-close" onclick="closeVoice()"><i class="fas fa-times"></i></button>
+    <div class="voice-animation" id="voiceAnim">
+      <div class="voice-ring r1"></div>
+      <div class="voice-ring r2"></div>
+      <div class="voice-ring r3"></div>
+      <i class="fas fa-microphone voice-mic"></i>
+    </div>
+    <p class="voice-text" id="voiceText">Listening...</p>
+    <p class="voice-sub">Speak now to search</p>
+  </div>
+</div>
+
+<!-- THEME CUSTOMIZER -->
+<div class="theme-customizer" id="themeCustomizer">
+  <button class="customizer-toggle" onclick="toggleCustomizer()"><i class="fas fa-palette"></i></button>
+  <div class="customizer-panel" id="customizerPanel" style="display:none;">
+    <p class="customizer-title">Theme Color</p>
+    <div class="color-swatches">
+      <div class="swatch active" style="background:#9b1d6a;" onclick="setTheme('#9b1d6a','#d63384')"></div>
+      <div class="swatch" style="background:#c0392b;" onclick="setTheme('#c0392b','#e74c3c')"></div>
+      <div class="swatch" style="background:#1877f2;" onclick="setTheme('#1877f2','#4facfe')"></div>
+      <div class="swatch" style="background:#2d9e2d;" onclick="setTheme('#2d9e2d','#56ab2f')"></div>
+      <div class="swatch" style="background:#e67e22;" onclick="setTheme('#e67e22','#f39c12')"></div>
+      <div class="swatch" style="background:#8b00ff;" onclick="setTheme('#8b00ff','#9b59b6')"></div>
+    </div>
+  </div>
+</div>
+
+<!-- BUY NOW PROGRESS -->
+<div class="progress-bar-wrap" id="progressBarWrap" style="display:none;">
+  <div class="progress-steps">
+    <div class="progress-step active"><i class="fas fa-shopping-cart"></i><span>Cart</span></div>
+    <div class="progress-step"><i class="fas fa-map-marker-alt"></i><span>Address</span></div>
+    <div class="progress-step"><i class="fas fa-credit-card"></i><span>Payment</span></div>
+    <div class="progress-step"><i class="fas fa-check-circle"></i><span>Done</span></div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

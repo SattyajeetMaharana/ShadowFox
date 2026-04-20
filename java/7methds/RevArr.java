@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+class RevArr{
+public static void main(String args[]){
+Scanner sc=new Scanner(System.in);
+System.out.println("Enter the value of n: ");
+int n=sc.nextInt();
+int Arr[]=new int[n];
+System.out.print("Enter the values of ");
+for(int i=0; i<n; i++){
+   System.out.println("Enter "+(i+1)+" number: ");
+   Arr[i]=sc.nextInt();
+}
+System.out.println("The Array is: ");
+for(int i=0; i<n; i++){
+   System.out.print(Arr[i]+"  ");
+}
+for(int i=0; i<n/2; i++){
+int Temp=Arr[i];
+Arr[i]=Arr[n-i-1];
+Arr[n-i-1]=Temp;
+}
+System.out.println("After Reversing the Array is: ");
+for(int i=0; i<n; i++){
+   System.out.print(Arr[i]+"  ");
+}
+}}
+
+
